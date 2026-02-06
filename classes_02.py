@@ -17,7 +17,7 @@ class Product:
     def apply_discount(self, percent: int) -> None:
         """
         Smanji cijenu za percent (%).
-        Cijena ostaje int; koristi int() za floor.
+        Cijena ostaje int;
         Ako je percent <= 0, ne mijenjaj cijenu.
         """
         # STUDENT CODE START
