@@ -1,3 +1,4 @@
+from typing import List
 
 
 class Product:
@@ -43,19 +44,26 @@ class Cart:
 
     def __init__(self):
         # STUDENT CODE START
-        pass
+        self.items = []
+        # self.items: List[Product] = []
         # STUDENT CODE END
 
     def add(self, product: Product) -> None:
         """Dodaj product u items."""
         # STUDENT CODE START
-        pass
+        self.items.append(product)
         # STUDENT CODE END
 
     def total(self) -> int:
         """Vrati zbroj cijena svih proizvoda u items."""
         # STUDENT CODE START
-        pass
+        # return sum(item.price for item in self.items)
+
+        total_price = 0
+        for item in self.items:
+            total_price += item.price
+
+        return total_price
         # STUDENT CODE END
 
 
