@@ -1,3 +1,4 @@
+
 class User:
     """
     Predstavlja korisnika pretplate.
@@ -15,17 +16,50 @@ class User:
     def charge(self, amount: int) -> None:
         """Povećaj dugovanje (balance) za amount ako je amount > 0."""
         # STUDENT CODE START
-        pass
+        if amount > 0:
+            self.balance = self.balance + amount
         # STUDENT CODE END
 
     def pay(self, amount: int) -> None:
         """Smanji dugovanje (balance) za amount ako je amount > 0. Balance ne smije pasti ispod 0."""
         # STUDENT CODE START
+        # self.balance = max(0, self.balance - amount)
+        if amount > 0:
+            if self.balance - amount < 0:
+                self.balance = 0
+            else:
+                self.balance = self.balance - amount
+        # STUDENT CODE END
+
+
+class Product:
+    """
+    Proizvod s cijenom.
+
+    Polja:
+    - name: string
+    - price: int (>=0)
+    """
+
+    def __init__(self, name: str, price: int):
+        # STUDENT CODE START
+        pass
+        # STUDENT CODE END
+
+    def apply_discount(self, percent: int) -> None:
+        """
+        Smanji cijenu za percent (%).
+        Cijena ostaje int; koristi int() za floor.
+        Ako je percent <= 0, ne mijenjaj cijenu.
+        """
+        # STUDENT CODE START
         pass
         # STUDENT CODE END
 
 
-# User
+
+
+#region User
 u = User("Ana", 0)
 assert u.name == "Ana"
 assert u.balance == 0
@@ -37,3 +71,15 @@ u.pay(100)
 assert u.balance == 0
 u.charge(-10)  # ignoriraj
 assert u.balance == 0
+#endregion
+
+
+#region Product
+p1 = Product("Kruh", 2)
+p2 = Product("Sir", 10)
+assert p1.name == "Kruh" and p1.price == 2
+p2.apply_discount(10)
+assert p2.price == 9
+p2.apply_discount(0)
+assert p2.price == 9
+#endregion
