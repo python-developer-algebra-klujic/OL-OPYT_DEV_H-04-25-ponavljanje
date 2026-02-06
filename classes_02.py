@@ -11,7 +11,13 @@ class Product:
 
     def __init__(self, name: str, price: int):
         # STUDENT CODE START
-        pass
+        self.name = name
+        self.price = max(0, price)
+        # self.price = price if price >= 0 else 0
+        # if price >= 0:
+        #     self.price = price
+        # else:
+        #     self.price = 0
         # STUDENT CODE END
 
     def apply_discount(self, percent: int) -> None:
@@ -21,7 +27,9 @@ class Product:
         Ako je percent <= 0, ne mijenjaj cijenu.
         """
         # STUDENT CODE START
-        pass
+        if percent > 0:
+            # self.price -= int(self.price * (percent / 100))
+            self.price = self.price - int(self.price * (percent / 100))
         # STUDENT CODE END
 
 
